@@ -1,0 +1,21 @@
+name = "avrpwmtest"
+description = "Shiny new project"
+version = "0.1.0-dev"
+
+authors = ["Jose Alexis Paez Thurgood"]
+maintainers = ["Jose Alexis Paez Thurgood <jose.alexis.paez.thurgood@gmail.com>"]
+maintainers-logins = ["alexispaez"]
+
+executables = ["avrpwmtest"]
+[[depends-on]]
+avrada_rts = "^2.0.1"
+[[depends-on]]
+avrada_mcu = "^2.0.2"
+[[depends-on]]
+avrada_lib = "^2.0.2"
+[[pins]]
+avrada_lib = { path='../avrada_lib_2.0.2_be6627e4' }
+
+[configuration.values]
+avrada_rts.AVR_MCU = "atmega328p"
+avrada_rts.Clock_Frequency = 16000000
