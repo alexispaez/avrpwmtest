@@ -14,7 +14,7 @@ avrada_mcu = "^2.0.2"
 [[depends-on]]
 avrada_lib = "^2.0.2"
 [[pins]]
-avrada_lib = { path='../avrada_lib_2.0.2_be6627e4' }
+avrada_lib = { path='../avrada_lib_2.1.0_fe38c6dc' }
 
 [configuration.values]
 avrada_rts.AVR_MCU = "atmega328p"

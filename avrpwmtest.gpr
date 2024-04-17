@@ -1,29 +1,34 @@
 with "avrada_rts.gpr";
 with "config/avrpwmtest_config.gpr";
 with "avr_tool_options.gpr";
+
 project Avrpwmtest is
 
    for Target use "avr";
-   for Runtime ("Ada") use AVRAda_Rts'Project_Dir;
-   
-   package Builder renames AVR_Tool_Options.Builder;
-
-   for Source_Dirs use ("src/", "config/");
+   for Runtime ("ada") use Avrada_Rts'Project_Dir;
+   for Source_Dirs use ("src", "config");
    for Object_Dir use "obj/" & Avrpwmtest_Config.Build_Profile;
    for Create_Missing_Dirs use "True";
    for Exec_Dir use "bin";
-   for Main use ("avrpwmtest.adb");
+   for Main use ("avrpwmtest.adb", "ledtest.adb");
+
+   package Builder renames Avr_Tool_Options.Builder;
 
    package Compiler is
-      for Default_Switches ("Ada") use AVR_Tool_Options.ALL_ADAFLAGS;
+      for Default_Switches ("ada") use Avr_Tool_Options.All_Adaflags;
    end Compiler;
 
    package Binder is
-      for Switches ("Ada") use AVR_Tool_Options.Binder_Switches; --  Symbolic traceback
+      for Switches ("ada") use Avr_Tool_Options.Binder_Switches; --  Symbolic traceback
    end Binder;
 
    package Linker is
-      for Switches ("Ada") use AVR_Tool_Options.Linker_Switches;
+      for Switches ("ada") use Avr_Tool_Options.Linker_Switches;
    end Linker;
 
+   package Ide is
+      for Vcs_Kind use "git";
+   end Ide;
+
 end Avrpwmtest;
+
