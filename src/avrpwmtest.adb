@@ -111,4 +111,6 @@ begin
       --end loop;
    end loop;
 
+   -- This is a new line added for testing
+
 end avrpwmtest;
